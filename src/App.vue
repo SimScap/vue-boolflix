@@ -39,7 +39,6 @@ export default {
       .then((response) =>{
         console.log(response.data.results);
         this.movies = response.data.results;
-        this.moviesAndSeries = [...this.movies, ...this.series];
       })
       .catch ((error) =>{
         console.log(error);
@@ -51,7 +50,6 @@ export default {
       .then((response) =>{
         console.log(response.data.results);
         this.series = response.data.results;
-        this.moviesAndSeries = [...this.movies, ...this.series];
       })
       .catch ((error) =>{
         console.log(error);
