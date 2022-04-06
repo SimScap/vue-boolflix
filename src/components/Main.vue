@@ -1,4 +1,5 @@
 <template>
+<main>
 <div class="container-fluid">
     <div class="row text-center">
         <div class="col-12" v-if="movies.length != 0">
@@ -46,6 +47,8 @@
         </div>     
     </div>  
 </div>
+</main>
+
 </template>
 <script>
 import LangFlag from 'vue-lang-code-flags'
@@ -89,7 +92,6 @@ li{
 position: relative;
 float: left;
 }
-
 .imageBox .hoverImg {
 position: absolute;
 left: 0;
@@ -100,8 +102,11 @@ width: 100%;
 height: 100%;
 overflow-y: auto;
 }
-
 .imageBox:hover .hoverImg {
 display: block;
+}
+main{
+    height: calc(100vh - 100px);
+    overflow-y: auto;
 }
 </style>

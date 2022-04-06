@@ -24,8 +24,6 @@ data: function(){
 <style lang="scss">
 div.my-container{
     background-color: aliceblue;
-}
-.my-input{
-    border: 2px solid red;
+    height: 60px;
 }
 </style>

@@ -2,6 +2,7 @@
   <div>
     <Header @newSearch="updateMovieSearch"/>
     <Main :movies="movies" :series="series"/>
+    <Footer/>
   </div>
 </template>
 
@@ -9,19 +10,21 @@
 import axios from "axios";
 import Main from './components/Main.vue'
 import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+
 
 export default {
   name: 'App',
   components: {
     Main,
     Header,
+    Footer,
   },
   data : 
     function(){
       return {
         movies: [],
         series: [],
-        moviesAndSeries : [],
         apiURL :'https://api.themoviedb.org/3/search/',
         apiKey : '?api_key=862b418e78bf66e4955745813391c00b&query=',
         movieSearch : '',
