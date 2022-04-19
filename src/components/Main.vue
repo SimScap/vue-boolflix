@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row text-center">
         <div class="col-12" v-if="movies.length != 0">
-            <h1  class="text-danger">Films</h1>
+            <h1  class="text-danger">Film</h1>
             <ul class="d-flex flex-wrap ">
             <li v-for="(movie , index) in movies" :key="index + 'movie' + movie.id" class="p-3">
                 <div class="imageBox">
@@ -13,7 +13,7 @@
                     <div class="hoverImg">
                 <h5><span class="text-danger">Titolo:</span> {{movie.original_title}}</h5>
                 <h5 class="text-warning">Language: <span><Lang-flag  :iso ="movie.original_language" /></span></h5> 
-                        <h5 class="text-white text-center"><span class="text-secondary">Overview: </span>{{movie.overview}}</h5>                                         
+                        <h5 class="text-white text-center"><span class="text-secondary">Overview: </span>{{limitOverview(movie)}}</h5>                                         
                         <span class="stars bg-dark" v-for="(n, index) in getStar(movie.vote_average)" :key="index">&#9733;</span>                                                     
                     </div>
                 </div>                                                              
@@ -61,19 +61,20 @@ components : {
 methods: {
     getPoster(path){
         return `https://image.tmdb.org/t/p/w342/${path}`
-        },
+    },
+
     getStar(stars){
         return Math.ceil(stars / 2);
-    }
-},
-limitOverview() {
-    if (this.movies.overview.length > 100) {
-        return this.movies.overview.slice(0, 50) + "...";
+    },
+
+    limitOverview(movie){
+    if (movie.overview.length > 150) {
+        return movie.overview.slice(0, 100) + "...";
     } else {
-        return this.movies.overview;
+        return movie.overview;
     }
     },
-}
+},}
 </script>
 
 <style lang="scss">
